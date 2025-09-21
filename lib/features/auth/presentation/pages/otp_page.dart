@@ -7,6 +7,7 @@ import 'package:sumi/features/auth/services/auth_service.dart';
 import 'package:sumi/l10n/app_localizations.dart';
 import 'package:sumi/features/community/services/community_service.dart';
 import 'package:sumi/core/services/user_type_service.dart';
+import 'package:sumi/features/auth/presentation/pages/auth_gate.dart';
 
 class OtpPage extends StatefulWidget {
   final String verificationId;
@@ -184,9 +185,14 @@ class _OtpPageState extends State<OtpPage> with SingleTickerProviderStateMixin {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         );
+        
+        // Navigate to home after successful verification
+        // Go back to AuthGate and let it handle proper navigation
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const AuthGate()),
+          (Route<dynamic> route) => false,
+        );
       }
-      
-      // AuthGate will handle navigation
     } on FirebaseAuthException catch (e) {
       if (mounted) {
         String errorMessage;
@@ -405,7 +411,12 @@ class _OtpPageState extends State<OtpPage> with SingleTickerProviderStateMixin {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
           ),
         );
-        // AuthGate will handle navigation
+        
+        // Navigate to home after successful Google sign-in
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const AuthGate()),
+          (Route<dynamic> route) => false,
+        );
       } else {
         if (mounted) {
           setState(() => _isLoading = false);
