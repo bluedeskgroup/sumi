@@ -297,7 +297,9 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                     setState(() {
                       // Format phone number in E.164 format (required by Firebase)
                       // E.164 format: +[country code][subscriber number]
-                      _phoneNumber = '+${_selectedCountry.phoneCode}$value';
+                      // Remove leading zero if present (common in local formats)
+                      final cleanedValue = value.startsWith('0') ? value.substring(1) : value;
+                      _phoneNumber = '+${_selectedCountry.phoneCode}$cleanedValue';
                     });
                   },
                 ),
