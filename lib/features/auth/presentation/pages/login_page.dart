@@ -295,7 +295,7 @@ class _LoginPageState extends State<LoginPage> with SingleTickerProviderStateMix
                   ),
                   onChanged: (value) {
                     setState(() {
-                      _phoneNumber = '${_selectedCountry.phoneCode}$value';
+                      _phoneNumber = '+${_selectedCountry.phoneCode}$value';
                     });
                   },
                 ),
