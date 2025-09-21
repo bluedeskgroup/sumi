@@ -1,0 +1,112 @@
+name: sumi
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  intl: ^0.20.2
+  shared_preferences: ^2.4.1
+
+  # Firebase packages - updated to latest compatible versions
+  firebase_core: ^3.15.2
+  firebase_auth: ^5.7.0
+  cloud_firestore: ^5.6.12
+  firebase_storage: ^12.4.10
+  firebase_app_check: ^0.3.2
+  google_sign_in: ^6.3.0
+  intl_phone_field: ^3.2.0
+  pinput: ^5.0.2
+
+  cupertino_icons: ^1.0.2
+  flutter_svg: ^2.2.0
+  image_picker: ^1.2.0
+  cached_network_image: ^3.4.1
+  timeago: ^3.7.0
+  video_player: ^2.10.0
+  chewie: ^1.12.1
+  share_plus: ^11.1.0
+  uuid: ^4.5.1
+  video_compress: ^3.1.3
+  path: ^1.9.1
+  flutter_rating_bar: ^4.0.1
+  photo_view: ^0.15.0
+  shimmer: ^3.0.0
+  flutter_staggered_animations: ^1.1.1
+  dotted_border: ^3.1.0
+  smooth_page_indicator: ^1.2.1
+  flutter_credit_card: ^4.1.0
+  emoji_picker_flutter: ^4.3.0
+  flutter_colorpicker: ^1.1.0
+  video_thumbnail: ^0.5.6
+  path_provider: ^2.1.5
+  rxdart: ^0.28.0
+  permission_handler: ^11.4.0
+  dio: ^5.7.0
+  country_picker: ^2.0.26
+  crypto: ^3.0.5
+  http: ^1.2.2
+  mobile_scanner: ^5.2.3
+  camera: ^0.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.4
+  flutter_lints: ^6.0.0
+  build_runner: ^2.8.0
+
+# This is a comment to force a refresh
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
+  remove_alpha_ios: true
+  web:
+    generate: true
+  windows:
+    generate: true
+  macos:
+    generate: true
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/images/onboarding/
+    - assets/images/services/
+    - assets/images/nav/
+    - assets/images/about_us/
+    - assets/images/chat/
+    - assets/images/challenges/
+    - assets/images/referral/
+    - assets/images/wallet/
+    - assets/images/products/
+    - assets/images/order_details/
+    - assets/images/reservation_details/
+    - assets/images/card_scanner/
+    - assets/images/success_dialog/
+    - assets/images/products_page/
+    - assets/images/add_product_page/
+    - assets/images/product_details_page/
+    - assets/images/product_details_v2/
+    - assets/images/merchant_products_enhanced/
+    - assets/images/edit_product_page/
+    - assets/images/edit_service_page/
+    - assets/images/delete_confirmation/
+    - assets/images/more_page/
+    - assets/icons/
+    - assets/icons/figma/
+    - assets/images/figma/
+    - assets/images/stories/
+    - assets/images/products/
+    - assets/images/services/
+    - assets/images/ 

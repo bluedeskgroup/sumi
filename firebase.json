@@ -1,0 +1,44 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "sumi-86a45",
+          "appId": "1:635021723313:android:47e3aad5951bc3b2b50490",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "sumi-86a45",
+          "configurations": {
+            "android": "1:635021723313:android:47e3aad5951bc3b2b50490",
+            "ios": "1:635021723313:ios:7ab4912a07ad07feb50490",
+            "web": "1:635021723313:web:cb061b91b34c3ebbb50490"
+          }
+        }
+      }
+    }
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
+  "emulators": {
+    "auth": {
+      "port": 9099
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "storage": {
+      "port": 9199
+    },
+    "ui": {
+      "enabled": true
+    }
+  }
+}

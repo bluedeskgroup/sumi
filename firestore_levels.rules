@@ -1,0 +1,56 @@
+// Firestore Rules for Referral Levels
+// Add these rules to your main firestore.rules file
+
+// Rules for referralLevels collection
+match /referralLevels/{levelId} {
+  // Allow read for authenticated users
+  allow read: if request.auth != null;
+  
+  // Only allow write for admin users (you can customize this)
+  allow write: if request.auth != null && 
+    (request.auth.token.admin == true || 
+     request.auth.uid in get(/databases/$(database)/documents/settings/admins).data.adminIds);
+}
+
+// Rules for notifications collection
+match /notifications/{notificationId} {
+  // Users can read their own notifications
+  allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+  
+  // Allow write for admin or the system
+  allow write: if request.auth != null;
+}
+
+// Rules for referralTransactions collection
+match /referralTransactions/{transactionId} {
+  // Users can read transactions that belong to them
+  allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+  
+  // Allow write for the system and admins
+  allow write: if request.auth != null;
+}
+
+// Rules for withdrawalRecords collection
+match /withdrawalRecords/{recordId} {
+  // Users can read their own withdrawal records
+  allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+  
+  // Users can create their own withdrawal requests
+  allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+  
+  // Only admins can update withdrawal records
+  allow update: if request.auth != null && 
+    (request.auth.token.admin == true || 
+     request.auth.uid in get(/databases/$(database)/documents/settings/admins).data.adminIds);
+}
+
+// Rules for settings collection
+match /settings/{settingId} {
+  // Allow read for authenticated users
+  allow read: if request.auth != null;
+  
+  // Only allow write for admin users
+  allow write: if request.auth != null && 
+    (request.auth.token.admin == true || 
+     request.auth.uid in get(/databases/$(database)/documents/settings/admins).data.adminIds);
+}
